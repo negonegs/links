@@ -29,6 +29,7 @@
       max-width: 400px;
       text-align: center;
       box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      overflow: hidden;
     }
 
     h1 {
@@ -41,6 +42,7 @@
       gap: 1rem;
       justify-content: center;
       margin-top: 1rem;
+      position: relative;
     }
 
     button {
@@ -74,8 +76,8 @@
 </head>
 
 <body>
-  <div class="card" id="card">
-    <h1 id="question">Hey beautiful. Will you make me the happiest man again and be my Valentine?</h1>
+  <div class="card">
+    <h1 id="question">Will you be my Valentine?</h1>
 
     <div class="buttons" id="buttons">
       <button id="yes">Yes</button>
@@ -89,16 +91,25 @@
     const question = document.getElementById("question");
     const buttons = document.getElementById("buttons");
 
+    let attempts = 0;
+
+    const moveNoButton = () => {
+      attempts++;
+      if (attempts > 4) return; // stop evading after a few tries
+
+      const x = Math.random() * 160 - 80;
+      const y = Math.random() * 160 - 80;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    };
+
     yesBtn.addEventListener("click", () => {
-      question.innerText = "I look forward to making memories with you. Always & forever❤️";
+      question.innerText = "You just made my day ❤️";
       buttons.classList.add("hidden");
     });
 
-    noBtn.addEventListener("mouseover", () => {
-      const x = Math.random() * 120 - 60;
-      const y = Math.random() * 120 - 60;
-      noBtn.style.transform = `translate(${x}px, ${y}px)`;
-    });
+    // Desktop + mobile support
+    noBtn.addEventListener("mouseenter", moveNoButton);
+    noBtn.addEventListener("touchstart", moveNoButton);
   </script>
 </body>
 </html>
