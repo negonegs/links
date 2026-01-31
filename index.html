@@ -95,7 +95,7 @@
 
     const moveNoButton = () => {
       attempts++;
-      if (attempts > 4) return; // stop evading after a few tries
+      if (attempts > 100) return; // stop evading after a few tries
 
       const x = Math.random() * 160 - 80;
       const y = Math.random() * 160 - 80;
@@ -113,4 +113,5 @@
   </script>
 </body>
 </html>
+
 
