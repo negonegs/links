@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Just a Question</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #f8cdda, #fbc2eb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #333;
+    }
+
+    .card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    #yes {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    #no {
+      background: #e0e0e0;
+      color: #333;
+      position: relative;
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card" id="card">
+    <h1 id="question">Hey beautiful. Will you make me the happiest man again and be my Valentine?</h1>
+
+    <div class="buttons" id="buttons">
+      <button id="yes">Yes</button>
+      <button id="no">No</button>
+    </div>
+  </div>
+
+  <script>
+    const yesBtn = document.getElementById("yes");
+    const noBtn = document.getElementById("no");
+    const question = document.getElementById("question");
+    const buttons = document.getElementById("buttons");
+
+    yesBtn.addEventListener("click", () => {
+      question.innerText = "I look forward to making memories with you. Always & forever❤️";
+      buttons.classList.add("hidden");
+    });
+
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * 120 - 60;
+      const y = Math.random() * 120 - 60;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+  </script>
+</body>
+</html>
